@@ -1,6 +1,9 @@
 
 import express = require('express');
 
+// Importando path, no hay que hacer inatalación por que ya viene definido en typescript
+import path = require('path');
+
 // default es por si alguien importa este archivo, esa clase se importara por defecto
 export default class Server {
 
@@ -21,9 +24,21 @@ export default class Server {
         return new Server( port );
     }
 
+    // Definiendo el path publico
+    private publicFolder() {
+
+        const publicPath = path.resolve(__dirname, '../public');
+
+        this.app.use( express.static( publicPath ) );
+
+    }
+
     // Escuchando
     start( callback: Function ) {
         this.app.listen( this.port, callback() );
+        
+        // Llamando path publico
+        this.publicFolder();
     }
 
 }
