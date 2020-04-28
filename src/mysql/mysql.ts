@@ -23,9 +23,14 @@ export default class MySQL {
         });
 
         this.conectarDB();
-
-
     }
+
+    // Obteniendo instancia (Patron Singleton)
+    public static get instance() {
+        // this() es para llamar al constructor en caso de que no exista una instancia (para que no haya multiples instancias al llamar muchas veces el instance)
+        return this._instance || ( this._instance = new this() )
+    }
+
 
     // Manejo de errores
     private conectarDB() {
