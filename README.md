@@ -4,6 +4,9 @@
 ## Compilar typescript
 - tsc
 
+## Ejecutar script personalizado de package.json
+- `npm run build`
+
 # Instalaciones necesarias
 - Express `npm install express --save`
 - Tipado de Express `npm install @types/express --save-dev`
