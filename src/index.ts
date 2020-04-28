@@ -10,7 +10,7 @@ const server = Server.init( 3000 );
 server.app.use( router );
 
 // Ejecutando conexión mysql desde mysql.ts
-MySQL.instance;
+// MySQL.instance;
 
 server.start( () => {
     console.log('Servidor corriendo en el puerto 3000');

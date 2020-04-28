@@ -6,13 +6,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // Importando server
 const server_1 = __importDefault(require("./server/server"));
 const router_1 = __importDefault(require("./router/router"));
-const mysql_1 = __importDefault(require("./mysql/mysql"));
 // Iniciando app
 const server = server_1.default.init(3000);
 // Llamando configuración de rutas
 server.app.use(router_1.default);
 // Ejecutando conexión mysql desde mysql.ts
-mysql_1.default.instance;
+// MySQL.instance;
 server.start(() => {
     console.log('Servidor corriendo en el puerto 3000');
 });

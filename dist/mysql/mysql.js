@@ -20,6 +20,21 @@ class MySQL {
         // this() es para llamar al constructor en caso de que no exista una instancia (para que no haya multiples instancias al llamar muchas veces el instance)
         return this._instance || (this._instance = new this());
     }
+    static ejecutarQuery(query, callback) {
+        this.instance.cnn.query(query, (err, results, fields) => {
+            if (err) {
+                console.log('Error en query');
+                console.log(err);
+                return callback(err);
+            }
+            if (results.length === 0) {
+                callback('El registro solicitado no existe');
+            }
+            else {
+                callback(null, results);
+            }
+        });
+    }
     // Manejo de errores
     conectarDB() {
         this.cnn.connect((err) => {
